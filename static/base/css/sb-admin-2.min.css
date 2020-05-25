@@ -45,16 +45,16 @@ a:focus {
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -200px;
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
+    padding: 12px;
     background: #0066A1;
 }
 
 #sidebar ul.components {
-    padding: 20px 0px;
+    padding: 12px 0px;
     border-bottom: 1px solid #0066A1;
 }
 

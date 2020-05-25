@@ -140,9 +140,9 @@ class Rol_miembro( ClaseModelo ):
 
     descripcion = models.CharField(
         max_length=45,
-        help_text='Descripción de la sede dende estudia',
+        help_text='Descripción del rol del miembro dentro de la rama',
         unique=True,
-        verbose_name='Descripción sede'
+        verbose_name='Descripción rol'
     )
 
     def __str__(self):

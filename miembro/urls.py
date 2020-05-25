@@ -19,10 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from bases.views import Home
 from django.contrib.auth import views as auth_views
+from .views import MiembroView
 
 urlpatterns = [
-    path('miembro_detalle/',auth_views.LoginView.as_view(template_name='miembro/miembro_detalle.html'),
-    name='miembro_detalle'),
-    path('miembro_listar/',auth_views.LoginView.as_view(template_name='miembro/miembro_listar.html'),
-    name='miembro_listar'),
+    path('miembro/', MiembroView.as_view(), name='miembro_listar'),
+    
 ]
