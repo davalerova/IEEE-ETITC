@@ -175,14 +175,14 @@ class Miembro(ClaseModelo):
     correo_institucional = models.EmailField(
         max_length=70,
         # help_text='Correo electrónico del miembro',
-        verbose_name='Correo electrónico',
+        verbose_name='Correo electrónico institucional',
         unique=True
     )
 
     correo_personal = models.EmailField(
         max_length=70,
         # help_text='Correo electrónico del miembro',
-        verbose_name='Correo electrónico',
+        verbose_name='Correo electrónico personal',
         unique=True
     )
 
