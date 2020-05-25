@@ -111,8 +111,8 @@ class Tipo_sangre( ClaseModelo ):
         super( Tipo_sangre, self ).save()
 
     class Meta:
-        verbose_name = 'Tipo_sangre'
-        verbose_name_plural = "Tipo_sangre"
+        verbose_name = 'Tipo de sangre'
+        verbose_name_plural = "Tipos de sangre"
 
 #################################################################################
 class Sede( ClaseModelo ):
@@ -154,7 +154,7 @@ class Rol_miembro( ClaseModelo ):
 
     class Meta:
         verbose_name = 'Rol miembro'
-        verbose_name_plural = 'Rol miembro'
+        verbose_name_plural = 'Roles miembro'
 
 #################################################################################
 
