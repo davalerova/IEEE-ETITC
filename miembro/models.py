@@ -4,6 +4,7 @@ from bases.models import ClaseModelo
 from django.contrib.auth.models import User
 # Create your models here.
 
+from datetime import date
 
 #################################################################################
 class Genero( ClaseModelo ):
@@ -81,6 +82,9 @@ class Barrio( ClaseModelo ):
     ciudad = models.ForeignKey(Ciudad, on_delete=models.PROTECT)
 
     nota = models.TextField(blank=True)
+
+    def get_ciudad(self):
+        return self.ciudad
 
     def __str__(self):
         return '{}'.format( self.descripcion )
@@ -233,9 +237,26 @@ class Miembro(ClaseModelo):
     null=True
     )
 
-    usuario = models.ForeignKey(User,
+    usuario = models.OneToOneField(User,
     on_delete=models.PROTECT
     )
+
+    def edad(self):
+        hoy = date.today()
+        fechanacimiento=self.fecha_nacimiento
+        edad = hoy.year - fechanacimiento.year - ((hoy.month, hoy.day) < (fechanacimiento.month, fechanacimiento.day))
+        return edad
+
+    def mayor_de_edad(self):
+        hoy = date.today()
+        fechanacimiento=self.fecha_nacimiento
+        edad = hoy.year - fechanacimiento.year - ((hoy.month, hoy.day) < (fechanacimiento.month, fechanacimiento.day))
+        return edad>17
+    
+    mayor_de_edad.boolean = True
+
+    def ciudad(self):
+        return self.barrio.ciudad
 
     def save(self):
         self.nombres = self.nombres.upper()

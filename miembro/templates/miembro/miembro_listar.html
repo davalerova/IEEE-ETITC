@@ -91,7 +91,7 @@
                 <td>{{ item.fc|date:"d/m/Y H:i:s"}}</td>
                 {%if user.is_superuser%}
                 <td>
-                    <a href="{{BASE_DIR}}/admin/miembro/miembro/{{user.id}}/change/"
+                    <a href="{{BASE_DIR}}/admin/miembro/miembro/{{item.id}}/change/"
                        class="btn btn-warning btn-circle"
                        role="button"><i class="far fa-edit"></i></a>
                     <a href="{#% url 'ben:beneficiario_inactivar' item.id %#}"
