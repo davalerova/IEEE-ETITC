@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class ClaseModelo( models.Model ):
-    activo = models.BooleanField( default=True)
+    activo = models.BooleanField( default=True, verbose_name='Está activo')
     fc = models.DateTimeField( auto_now_add=True, editable=False )
     fm = models.DateTimeField( auto_now=True, editable=False )
     uc = models.IntegerField( blank=True, null=True, editable=False )

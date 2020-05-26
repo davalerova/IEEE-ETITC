@@ -1,0 +1,65 @@
+{% extends 'base/base.html' %}
+{% block usuario %}
+{% endblock%}
+{% block page_content %}
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-12 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-12">
+                <div class="p-5">
+                  <div class="text-center">
+                    <small class="text-danger">
+                        {% if form.errors %}
+                            {% for field in form %}
+                                {% if field.errors %}
+                                    {% for error in field.errors %}
+                                        {{ error|escape }}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        
+                            {% if form.non_field_errors%}
+                                {% for error in form.non_field_errors %}
+                                    {{ error|escape }}
+                                {% endfor %}
+                            {% endif %}
+                        {% endif %}
+                    </small>
+                  </div>
+                  <form class="user" method="POST">
+                    {% csrf_token %}
+                    
+
+                    { { form.as_p } from django.shortcuts import render
+
+# Create your views here.
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import generic
+
+
+class Home( generic.TemplateView ):
+    template_name = 'bases/home.html'
+    login_url='bases:login'}
+
+                    <button type="submit" class="btn btn-primary btn-user btn-block">Iniciar sesión</button>
+                    <a  class="nav-link btn " href="{% url 'bases:recuperar' %}">Olvidé mi contraseña</a>
+                </div>
+              </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

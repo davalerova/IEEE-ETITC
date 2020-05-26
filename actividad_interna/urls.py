@@ -1,4 +1,4 @@
-"""ieee_etitc URL Configuration
+"""IEEE_ETITC URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -14,13 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.urls import path
 from django.conf import settings
-from django.urls import path, include
 from django.conf.urls.static import static
+from bases.views import Home
+from django.contrib.auth import views as auth_views
+from .views import ActividadInternaView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path( '', include( ('bases.urls', 'bases'), namespace='bases' ) ),
-    path( 'miembro/', include( ('miembro.urls', 'miembro'), namespace='miembro' ) ),
-    path( 'actividad_interna/', include( ('actividad_interna.urls', 'actividad_interna'), namespace='actividad_interna' ) ),
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('actividad/', ActividadInternaView.as_view(), name='actividad_listar'),
+    
+]
