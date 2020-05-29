@@ -1,5 +1,6 @@
 body {
     padding-bottom: 24px;
+    background-color: rgb(252, 252, 252);
 }
 
 p {
@@ -148,6 +149,7 @@ a.article:hover {
   border: 0;
   border-radius: 1rem;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  background-color: #f3f1f1;
 }
 
 .card-signin .card-title {
@@ -269,3 +271,8 @@ a.article:hover {
     color: #777;
   }
 }
+
+.card-text{
+    font-size: x-large;
+}
+
