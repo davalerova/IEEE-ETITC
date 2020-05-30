@@ -97,7 +97,7 @@
                     <a href="{{BASE_DIR}}/admin/actividad_interna/actividad_interna/{{item.id}}/change/"
                        class="btn btn-warning btn-circle"
                        role="button"><i class="far fa-edit"></i></a>
-                    <a href="{#% url 'ben:beneficiario_inactivar' item.id %#}"
+                    <a href="{% url 'actividad_interna:actividad_inactivar' item.id %}"
                        class="btn btn-danger btn-circle" role="button"><i class="far fa-thumbs-down"></i></a>
                 </td>
                 {% endif %}

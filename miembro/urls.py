@@ -19,9 +19,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from bases.views import Home
 from django.contrib.auth import views as auth_views
-from .views import MiembroView
+from .views import MiembroView, miembro_inactivar
 
 urlpatterns = [
     path('miembro/', MiembroView.as_view(), name='miembro_listar'),
+    path('miembro/inactivar/<int:id>', miembro_inactivar, name='miembro_inactivar'),
     
 ]

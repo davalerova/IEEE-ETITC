@@ -84,6 +84,7 @@
             </thead>
             <tbody>
             {% for item in obj %}
+            {%if item.activo%}
             <tr>
                 <td>{{ item.nombres }}</td>
                 <td>{{ item.apellidos }}</td>
@@ -94,11 +95,12 @@
                     <a href="{{BASE_DIR}}/admin/miembro/miembro/{{item.id}}/change/"
                        class="btn btn-warning btn-circle"
                        role="button"><i class="far fa-edit"></i></a>
-                    <a href="{#% url 'ben:beneficiario_inactivar' item.id %#}"
+                    <a href="{% url 'miembro:miembro_inactivar' item.id %}"
                        class="btn btn-danger btn-circle" role="button"><i class="far fa-thumbs-down"></i></a>
                 </td>
                 {% endif %}
             </tr>
+            {%endif%}
             {% endfor %}
             </tbody>
         </table>

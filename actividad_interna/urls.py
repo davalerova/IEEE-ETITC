@@ -19,9 +19,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from bases.views import Home
 from django.contrib.auth import views as auth_views
-from .views import ActividadInternaView
+from .views import ActividadInternaView, actividad_inactivar
 
 urlpatterns = [
     path('actividad/', ActividadInternaView.as_view(), name='actividad_listar'),
+    path('actividad/inactivar/<int:id>', actividad_inactivar, name='actividad_inactivar'),
     
 ]
