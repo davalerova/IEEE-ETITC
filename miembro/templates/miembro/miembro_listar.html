@@ -11,12 +11,12 @@
    		
    		<ul class="list-unstyled components">
    		
-				{% if user.is_staff %}
+                    {% if perms.miembro.change_miembro%}
         <li>
 					<a href="{{BASE_DIR}}/admin/miembro/miembro/add/">Crear</a>
 				</li>
    		  {% endif %}
-   			{% if user.is_staff %}
+                    {% if perms.miembro.change_miembro%}
 				<li>
 					<a href="{{BASE_DIR}}/admin/miembro/miembro/">Listar</a>
 				</li>
@@ -78,7 +78,7 @@
             <th>Apellidos</th>
             <th>Correo institucional</th>
             <th>Fecha de ingreso</th>
-            {%if user.is_staff%}
+                    {% if perms.miembro.change_miembro%}
             <th class="all">Acciones</th>
             {% endif %}
             </thead>
@@ -90,15 +90,19 @@
                 <td>{{ item.apellidos }}</td>
                 <td>{{ item.correo_institucional}}</td>
                 <td>{{ item.fc|date:"d/m/Y H:i:s"}}</td>
-                {%if user.is_staff%}
+                {#%if user.is_staff%#}
                 <td>
+                    {% if perms.miembro.change_miembro%}
                     <a href="{{BASE_DIR}}/admin/miembro/miembro/{{item.id}}/change/"
                        class="btn btn-warning btn-circle"
                        role="button"><i class="far fa-edit"></i></a>
+                       {%endif%}
+                       {% if perms.miembro.change_miembro%}
                     <a href="{% url 'miembro:miembro_inactivar' item.id %}"
                        class="btn btn-danger btn-circle" role="button"><i class="far fa-thumbs-down"></i></a>
+                       {%endif%}
                 </td>
-                {% endif %}
+                {#% endif %#}
             </tr>
             {%endif%}
             {% endfor %}
