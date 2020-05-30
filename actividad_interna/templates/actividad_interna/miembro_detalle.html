@@ -11,12 +11,12 @@
    		
    		<ul class="list-unstyled components">
    		
-				{% if user.is_superuser %}
+				{% if user.is_staff %}
         <li>
 					<a href="{{BASE_DIR}}/admin/miembro/miembro/add/">Crear</a>
 				</li>
    		  {% endif %}
-   			{% if user.is_superuser %}
+   			{% if user.is_staff %}
 				<li>
 					<a href="{{BASE_DIR}}/admin/miembro/miembro/">Listar</a>
 				</li>

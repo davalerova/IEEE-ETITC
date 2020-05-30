@@ -11,12 +11,12 @@
    		
    		<ul class="list-unstyled components">
    		
-				{% if user.is_superuser %}
+				{% if user.is_staff %}
         <li>
 					<a href="{{BASE_DIR}}/admin/miembro/miembro/add/">Crear</a>
 				</li>
    		  {% endif %}
-   			{% if user.is_superuser %}
+   			{% if user.is_staff %}
 				<li>
 					<a href="{{BASE_DIR}}/admin/miembro/miembro/">Listar</a>
 				</li>
@@ -78,7 +78,7 @@
             <th>Apellidos</th>
             <th>Correo institucional</th>
             <th>Fecha de ingreso</th>
-            {%if user.is_superuser%}
+            {%if user.is_staff%}
             <th class="all">Acciones</th>
             {% endif %}
             </thead>
@@ -89,7 +89,7 @@
                 <td>{{ item.apellidos }}</td>
                 <td>{{ item.correo_institucional}}</td>
                 <td>{{ item.fc|date:"d/m/Y H:i:s"}}</td>
-                {%if user.is_superuser%}
+                {%if user.is_staff%}
                 <td>
                     <a href="{{BASE_DIR}}/admin/miembro/miembro/{{item.id}}/change/"
                        class="btn btn-warning btn-circle"

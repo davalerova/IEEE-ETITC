@@ -11,12 +11,12 @@
    		
    		<ul class="list-unstyled components">
    		
-				{% if user.is_superuser %}
+				{% if user.is_staff %}
         <li>
 					<a href="{{BASE_DIR}}/admin/actividad_interna/actividad_interna/add/">Crear</a>
 				</li>
    		  {% endif %}
-   			{% if user.is_superuser %}
+   			{% if user.is_staff %}
 				<li>
 					<a href="{{BASE_DIR}}/admin/actividad_interna/actividad_interna/">Listar</a>
 				</li>
@@ -79,19 +79,20 @@
             <th>Fecha</th>
             <th>Hora</th>
             <th>Lugar</th>
-            {%if user.is_superuser%}
+            {%if user.is_staff%}
             <th class="all">Acciones</th>
             {% endif %}
             </thead>
             <tbody>
             {% for item in obj %}
+            {%if item.activo%}
             <tr>
                 <td>{{ item.nombre }}</td>
                 <td>{{ item.descripcion }}</td>
                 <td>{{ item.fecha_actividad|date:"d/m/Y"}}</td>
                 <td>{{ item.fecha_actividad|date:"H:i:s"}}</td>
                 <td>{{ item.lugar_actividad}}</td>
-                {%if user.is_superuser%}
+                {%if user.is_staff%}
                 <td>
                     <a href="{{BASE_DIR}}/admin/actividad_interna/actividad_interna/{{item.id}}/change/"
                        class="btn btn-warning btn-circle"
@@ -101,6 +102,7 @@
                 </td>
                 {% endif %}
             </tr>
+            {%endif%}
             {% endfor %}
             </tbody>
         </table>
