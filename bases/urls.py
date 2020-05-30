@@ -33,4 +33,6 @@ urlpatterns = [
         name='construccion'),
     path('detalle/',auth_views.LoginView.as_view(template_name='bases/detalle.html'),
         name='detalle'),
+    path('contacto/',auth_views.LoginView.as_view(template_name='bases/contacto.html'),
+        name='contacto'),
 ]
