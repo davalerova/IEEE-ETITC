@@ -62,6 +62,8 @@
                 <div class="dropdown-menu">
                   {% if user.is_staff %}
                     <a class="dropdown-item" href="{{BASE_DIR}}/admin/">Admin</a>
+                  {% endif%}
+                  {% if user.is_superuser %}
                     <a class="dropdown-item" href="{{BASE_DIR}}/admin/auth/user/{{user.id}}/change/">Perfil</a>
                   {% endif%}
                   <a class="dropdown-item" href="{% url 'bases:logout' %}">Salir</a>
